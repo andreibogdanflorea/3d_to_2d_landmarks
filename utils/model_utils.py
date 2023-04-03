@@ -6,6 +6,16 @@ def load_mapping_network(config, device='cuda'):
 
     if "PRETRAINED" in config["MODEL"]:
         checkpoint = torch.load(config["MODEL"]["PRETRAINED"])
-        model.load_state_dict(checkpoint["state_dict"])
+        # Remove the "module." prefix from the parameter names of the saved state_dict
+        new_state_dict = {}
+        for key, value in checkpoint["state_dict"].items():
+            if key.startswith('module.'):
+                new_key = key[7:]  # remove the "module." prefix
+            else:
+                new_key = key
+            new_state_dict[new_key] = value
+
+        # Load the modified state_dict into the model's state_dict
+        model.load_state_dict(new_state_dict)
 
     return model

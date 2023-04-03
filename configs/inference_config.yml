@@ -1,0 +1,6 @@
+DATASET_INFERENCE:
+  PATH: "/home/andrei/Documents/3d_to_2d_landmarks/300W-LP/inference"
+
+MODEL:
+  NUM_POINTS: 68
+  PRETRAINED: "/home/andrei/Documents/3d_to_2d_landmarks/weights/experiments/exp_1/checkpoint_99.pth"
