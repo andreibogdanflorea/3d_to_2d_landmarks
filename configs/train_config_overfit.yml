@@ -1,0 +1,22 @@
+DATASET_TRAIN:
+  PATH: "/home/andrei/Documents/3d_to_2d_landmarks/300W-LP/overfit"
+
+DATASET_VALID:
+  PATH: "/home/andrei/Documents/3d_to_2d_landmarks/300W-LP/overfit"
+  SHUFFLE: false
+
+TRAIN_SETUP:
+  DEVICES: [0]
+  WORKERS: 1
+  BATCH_SIZE: 1
+  BEGIN_EPOCH: 0
+  END_EPOCH: 100
+  STEPS_PER_EPOCH: 10
+  SAVE_FREQ: 5
+  OPTIMIZER: "adam"
+  LEARNING_RATE: 0.0001
+  RESUME: false
+  RESUME_CHECKPOINT: ""
+
+MODEL:
+  NUM_POINTS: 68
